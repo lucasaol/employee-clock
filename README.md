@@ -22,3 +22,12 @@ O comando irá rodar as migrations pendentes (na primeira execução, serão tod
 make seed
 ```
 O comando irá popular a base de dados com alguns registros mockados, que podem ser utilizados para fazer o login.
+
+4. Inicializar o front-end
+```shell
+make start
+```
+O comando executa o ```npm install``` e ```npm run dev ``` para início da biblioteca front end.
+
+
+Após esse processo, a aplicação estará acessível em `http://localhost:8000`.

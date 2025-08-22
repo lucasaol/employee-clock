@@ -23,4 +23,7 @@ migrate:
 seed:
 	$(MAKE) art cmd="db:seed"
 
+start:
+	@npm install && npm run dev
+
 
