@@ -6,7 +6,7 @@ services:
         container_name: app
         restart: always
         volumes:
-            - ./:/var/www/html
+            - ./:/app
         ports:
             - "8000:8000"
         depends_on:
