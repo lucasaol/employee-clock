@@ -17,7 +17,7 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function store(LoginRequest $request): RedirectResponse
+    public function login(LoginRequest $request): RedirectResponse
     {
         $request->validated();
 
@@ -29,5 +29,12 @@ class AuthController extends Controller
 
         $request->session()->regenerate();
         return redirect()->intended(route('dashboard', absolute: false));
+    }
+
+    public function logout(Request $request): RedirectResponse
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        return redirect(route('home'));
     }
 }
