@@ -19,9 +19,9 @@
 
                     <div class="ml-10 flex items-baseline space-x-4">
                         @if(auth()->user()->is_admin())
-                        <a href="{{ route('dashboard') }}" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700">
-                            Dashboard
-                        </a>
+                            <a href="{{ route('users.index') }}" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700">
+                                {{__('Team Members')}}
+                            </a>
                         @endif
                     </div>
                 </div>
