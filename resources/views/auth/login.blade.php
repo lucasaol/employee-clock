@@ -30,16 +30,11 @@
             @enderror
         </div>
 
-        <div class="mb-4 flex items-center">
-            <input type="checkbox" name="remember" id="remember" class="mr-2" {{ old('remember') ? 'checked' : '' }}>
-            <label for="remember" class="text-sm">{{__('Remember me')}}</label>
-        </div>
-
         <div class="mb-4">
             <button type="submit"
                     class="w-full py-2 px-4 rounded font-semibold
-           bg-blue-600 text-white hover:bg-blue-700
-           dark:bg-blue-500 dark:hover:bg-blue-600
+           text-white
+           bg-blue-500 hover:bg-blue-600
            transition-colors duration-200">
                 {{__('Log in')}}
             </button>
