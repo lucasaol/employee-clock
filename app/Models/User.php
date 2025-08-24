@@ -47,12 +47,13 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'role' => Role::class,
         ];
     }
 
     public function is_admin(): bool
     {
-        return Role::from($this->role) === Role::ADMIN;
+        return $this->role === Role::ADMIN;
     }
 
     public function address(): HasOne
