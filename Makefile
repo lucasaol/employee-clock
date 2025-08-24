@@ -6,7 +6,8 @@ check:
 	@echo "Makefile funcionando ✅"
 
 up:
-	@docker compose up -d --build
+	@docker compose up -d
+	@npm install && npm run dev
 
 exec:
 	@docker exec --env-file ${PWD}/.env -it app $(cmd)
@@ -22,8 +23,5 @@ migrate:
 
 seed:
 	$(MAKE) art cmd="db:seed"
-
-start:
-	@npm install && npm run dev
 
 
