@@ -12,7 +12,7 @@
                     {{ __('Team Members') }}
                 </h1>
 
-                <a href="{{ route('users.index') }}"
+                <a href="{{ route('users.create') }}"
                    class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-4 py-2 rounded font-semibold">
                     Criar Usuário
                 </a>
