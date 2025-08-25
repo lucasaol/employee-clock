@@ -49,7 +49,7 @@
 
     <div class="mb-4 pr-4">
         <label for="city" class="block font-medium text-sm">{{ __('address.City') }}</label>
-        <input id="city" type="text" name="city" required value="{{old('city')}}"
+        <input id="city" type="text" name="city" required value="{{old('city', $user->address->city ?? '')}}"
                class="w-full border border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm  @error('city') border-red-500 @enderror">
         @error('city')
         <span class="text-red-500 text-sm">{{ $message }}</span>
