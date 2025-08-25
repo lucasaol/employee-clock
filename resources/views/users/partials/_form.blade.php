@@ -1,12 +1,5 @@
 @csrf
 
-@if (session('success'))
-    <div id="success-alert"
-        class="fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg transition-opacity duration-500"
-    >
-        {{ session('success') }}
-    </div>
-@endif
 
 <section class="border rounded p-4 mb-4">
     @include('users.partials._form-user-data')

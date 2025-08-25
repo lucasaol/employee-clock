@@ -14,7 +14,7 @@ class UserController extends Controller
 
     public function index(): View
     {
-        $users = User::orderBy('name')->paginate(10);
+        $users = User::orderBy('name')->paginate(5);
         return view('users.index', compact('users'));
     }
 
@@ -28,7 +28,7 @@ class UserController extends Controller
         $data = $request->validated();
         User::create($data);
 
-        return redirect()->back()->with('success', 'Registro criado com sucesso!');
+        return redirect()->route('users.index')->with('success', 'Usuário criado com sucesso!');
     }
 
 }
