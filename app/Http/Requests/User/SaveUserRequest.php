@@ -8,7 +8,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 
-class CreateUserRequest extends FormRequest
+class SaveUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -32,15 +32,17 @@ class CreateUserRequest extends FormRequest
      */
     public function rules(): array
     {
+        $userId = $this->route('user')?->id;
+
         return [
             'name' => [
                 'required', 'string', 'max:255'
             ],
             'document' => [
-                'required', 'max:14', 'cpf', 'unique:users,document'
+                'required', 'max:14', 'cpf', "unique:users,document,$userId"
             ],
             'email' => [
-                'required', 'email', 'lowercase', 'max:255', 'unique:' . User::class,
+                'required', 'email', 'lowercase', 'max:255', "unique:users,email,$userId",
             ],
             'password' => [
                 'required', 'confirmed', Password::default()->letters()->numbers()

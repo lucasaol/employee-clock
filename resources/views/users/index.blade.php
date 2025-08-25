@@ -45,7 +45,7 @@
                                 <td class="px-6 py-4 text-sm">{{ $user->email }}</td>
                                 <td class="px-6 py-4 text-sm capitalize">{{ $user->role->label() }}</td>
                                 <td class="px-6 py-4 text-center flex justify-center gap-2">
-                                    <a href="{{ route('users.index', $user) }}"
+                                    <a href="{{ route('users.edit', $user) }}"
                                        class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded text-sm">
                                         {{__('Edit')}}
                                     </a>

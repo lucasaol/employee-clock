@@ -20,5 +20,8 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/create', [UserController::class, 'create'])->name('create');
         Route::post('/store', [UserController::class, 'store'])->name('store');
+
+        Route::get('/{user}/edit', [UserController::class, 'edit'])->name('edit');
+        Route::put('/{user}', [UserController::class, 'update'])->name('update');
     });
 });

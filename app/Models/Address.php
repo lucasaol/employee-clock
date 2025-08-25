@@ -22,4 +22,8 @@ class Address extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function setZipcodeAttribute(string $value): void
+    {
+        $this->attributes['zipcode'] = preg_replace('/\D/', '', $value);
+    }
 }

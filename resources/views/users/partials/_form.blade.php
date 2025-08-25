@@ -1,6 +1,5 @@
 @csrf
 
-
 <section class="border rounded p-4 mb-4">
     @include('users.partials._form-user-data')
 </section>
