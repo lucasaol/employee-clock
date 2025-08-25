@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('time_record', function (Blueprint $table) {
+        Schema::create('time_records', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->enum('type', ['in', 'out'])->default('in');
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('time_record');
+        Schema::dropIfExists('time_records');
     }
 };

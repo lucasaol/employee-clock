@@ -6,6 +6,7 @@ use App\Enums\Role;
 use Carbon\Carbon;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -57,9 +58,9 @@ class User extends Authenticatable
         return $this->role === Role::ADMIN;
     }
 
-    public function address(): HasOne
+    public function is_employee(): bool
     {
-        return $this->hasOne(Address::class);
+        return $this->role === Role::EMPLOYEE;
     }
 
     public function setDocumentAttribute(string $value): void
@@ -70,5 +71,15 @@ class User extends Authenticatable
     public function setBirthDateAttribute(string $value): void
     {
         $this->attributes['birth_date'] = Carbon::createFromFormat('d/m/Y', $value)->format('Y-m-d');
+    }
+
+    public function address(): HasOne
+    {
+        return $this->hasOne(Address::class);
+    }
+
+    public function timeRecords(): HasMany
+    {
+        return $this->hasMany(TimeRecord::class);
     }
 }
