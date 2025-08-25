@@ -3,7 +3,7 @@
 <div class="space-y-4 grid grid-cols-4">
     <div class="mb-4 pr-4">
         <label for="zipcode" class="block font-medium text-sm">{{ __('address.Zipcode') }}</label>
-        <input id="zipcode" type="tel" name="zipcode" value="{{old('zipcode', $user->address->zipcode ?? '')}}" required
+        <input id="zipcode" type="tel" name="zipcode" value="{{old('zipcode', isset($user->address->zipcode) ? substr($user->address->zipcode, 0, 5) . '-' . substr($user->address->zipcode, 5, 3) : '')}}" required
                data-mask="cep"
                class="w-full border border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm  @error('zipcode') border-red-500 @enderror">
         @error('zipcode')
