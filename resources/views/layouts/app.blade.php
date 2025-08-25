@@ -28,7 +28,7 @@
 
                 <div class="flex items-center">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="{{ route('dashboard') }}" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <a href="{{ route('profile.index') }}" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700">
                             {{__('Profile')}}
                         </a>
 
