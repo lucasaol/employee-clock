@@ -196,5 +196,8 @@
   "Enter your email and password below to log in": "Digite seu e-mail e senha abaixo para entrar",
   "Don't have an account?": "Não tem uma conta?",
   "Position": "Cargo",
-  "Birth date": "Data de nascimento"
+  "Birth date": "Data de nascimento",
+  "Document": "Documento",
+  "Employee": "Funcionário",
+  "Address": "Endereço"
 }

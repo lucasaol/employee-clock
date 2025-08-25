@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\Role;
+use Carbon\Carbon;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -59,5 +60,15 @@ class User extends Authenticatable
     public function address(): HasOne
     {
         return $this->hasOne(Address::class);
+    }
+
+    public function setDocumentAttribute(string $value): void
+    {
+        $this->attributes['document'] = preg_replace('/\D/', '', $value);
+    }
+
+    public function setBirthDateAttribute(string $value): void
+    {
+        $this->attributes['birth_date'] = Carbon::createFromFormat('d/m/Y', $value)->format('Y-m-d');
     }
 }

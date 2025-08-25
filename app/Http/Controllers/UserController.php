@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\User\CreateUserRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
 class UserController extends Controller
@@ -20,9 +23,12 @@ class UserController extends Controller
         return view('users.create');
     }
 
-    public function store(Request $request)
+    public function store(CreateUserRequest $request): RedirectResponse
     {
+        $data = $request->validated();
+        User::create($data);
 
+        return redirect()->back()->with('success', 'Registro criado com sucesso!');
     }
 
 }
