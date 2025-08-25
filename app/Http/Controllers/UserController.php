@@ -67,4 +67,13 @@ class UserController extends Controller
         return redirect()->route('users.index')->with('success', 'Usuário alterado com sucesso!');
     }
 
+    public function destroy(User $user): RedirectResponse
+    {
+        DB::transaction(function () use ($user) {
+            $user->address()->delete();
+            $user->delete();
+        });
+        return redirect()->route('users.index')->with('success', 'Usuário removido com sucesso!');
+    }
+
 }

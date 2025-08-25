@@ -49,7 +49,7 @@
                                        class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded text-sm">
                                         {{__('Edit')}}
                                     </a>
-                                    <form action="{{ route('users.index', $user) }}" method="POST" onsubmit="return confirm('Tem certeza?');">
+                                    <form action="{{ route('users.destroy', $user) }}" method="POST" onsubmit="return confirm('Tem certeza?');">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm">
