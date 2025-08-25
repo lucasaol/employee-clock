@@ -49,5 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .catch(() => alert('Falha ao consultar CEP'))
     });
+
 });
 

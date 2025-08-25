@@ -26,6 +26,7 @@ class TimeRecordController extends Controller
             'type' => $newType,
             'recorded_at' => now()
         ]);
-        return redirect(route('dashboard'))->with('success', __('Success'));
+
+        return redirect(route('dashboard'))->with('success', __($newType->label() . ' registrada'));
     }
 }

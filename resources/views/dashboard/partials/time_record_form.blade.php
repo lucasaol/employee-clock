@@ -1,12 +1,6 @@
 @if(auth()->user()->is_employee())
     <section class="mt-6 space-y-6">
-        @if (session('success'))
-            <div id="success-alert"
-                 class="fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg transition-opacity duration-500"
-            >
-                {{ session('success') }}
-            </div>
-        @endif
+        @include('components.success-message')
 
         <form method="post" action="{{ route('time_records.store') }}">
             @csrf
