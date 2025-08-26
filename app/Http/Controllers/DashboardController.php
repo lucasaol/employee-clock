@@ -16,7 +16,7 @@ class DashboardController extends Controller
 
     public function index(TimeRecordsReportRequest $request): View
     {
-        $registers = [];
+        $records = [];
         if (auth()->user()->is_admin()) {
             $start = $request->input('start')
                 ? Carbon::parse($request->input('start'))->startOfDay()
