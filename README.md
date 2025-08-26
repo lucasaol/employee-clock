@@ -37,6 +37,7 @@ Após esse processo, a aplicação estará acessível em `http://localhost:8000`
 |----------------------|-----------------|
 | sistema@admin.com    | Administrador   |
 | sistema@employee.com | Funcionário     |
+
 A senha padrão para ambos é "password".
 
 Os demais registros já poderão ser inseridos utilizando as telas mesmo.
