@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enums\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -14,15 +15,38 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::firstOrCreate(
-            ['email' => 'lucas@andrade.com'],
+            ['email' => 'sistema@admin.com'],
             [
-                'name' => 'Lucas Andrade',
-                'document' => '12345678909',
+                'name' => 'Administrador do Sistema',
+                'document' => fake()->unique()->cpf(false),
                 'password' => Hash::make('password'),
-                'role' => 'admin',
-                'position' => 'Dev back-end',
-                'birth_date' => '1999-08-14',
+                'role' => Role::ADMIN,
+                'position' => 'ADM Sistema',
+                'birth_date' => fake()->dateTimeBetween('-40 years', '-18 years')->format('d/m/Y')
             ]
-        );
+        )->each(function ($user) {
+            User::firstOrCreate(
+                ['email' => 'sistema@employee.com'],
+                [
+                    'name' => 'Funcionário do Sistema',
+                    'document' => fake()->unique()->cpf(false),
+                    'password' => Hash::make('password'),
+                    'role' => Role::EMPLOYEE,
+                    'position' => 'Funcionário Sistema',
+                    'birth_date' => fake()->dateTimeBetween('-40 years', '-18 years')->format('d/m/Y'),
+                    'created_by' => $user->id
+                ]
+            );
+        });
+
+
+        User::factory()->count(2)->create([
+            'role' => Role::ADMIN
+        ])->each(function ($user) {
+            User::factory()->count(3)->create([
+                'role' =>  Role::EMPLOYEE,
+                'created_by' => $user->id,
+            ]);
+        });
     }
 }
